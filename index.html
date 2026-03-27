@@ -36,14 +36,33 @@
 
   /* ── Title bar ── */
   .card-title-bar {
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 0.3rem 0.8rem;
     padding: 0.7rem 1rem 0.6rem;
     border-bottom: 1px solid var(--kp-gray-light);
     background: var(--kp-gray-bg);
   }
+
+  .card-title-row {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.3rem 0.8rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .card-intro {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--kp-gray-dark);
+    line-height: 1.5;
+  }
+
+  .card-intro a {
+    color: var(--kp-red);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .card-intro a:hover { text-decoration: underline; }
 
   .card-title {
     font-family: 'Playfair Display', serif;
@@ -204,6 +223,7 @@
     .cell-sub         { font-size: 0.8rem; }
     .card-title       { font-size: 1.2rem; }
     .card-catchphrase { font-size: 0.95rem; }
+    .card-intro     { font-size: 0.9rem; }
     .card-contact     { font-size: 0.92rem; }
   }
 </style>
@@ -213,8 +233,11 @@
 <div class="card">
 
   <div class="card-title-bar">
-    <span class="card-title">THE MASK Updates — Spring 2026</span>
-    <span class="card-catchphrase">Catchphrase: <span>Recruit, Engage, Belong</span></span>
+    <div class="card-title-row">
+      <span class="card-title">THE MASK Updates — Spring 2026</span>
+      <span class="card-catchphrase">Catchphrase: <span>Recruit, Engage, Belong</span></span>
+    </div>
+    <p class="card-intro">Please submit your articles for the Spring Issue of <em>The MASK</em>. Below are some topics and ideas to include. <a href="https://form.jotform.com/kappa_psi/MASK" target="_blank" rel="noopener">Submit your article here &rarr;</a></p>
   </div>
 
   <div class="grid">
@@ -277,22 +300,12 @@
   </div>
 
   <div class="card-contact">
-    Questions? Contact Interim Editor <strong>Brother Melissa Buchanan</strong> at <a href="mailto:mask@kappapsi.org">mask@kappapsi.org</a>
+    Questions? Contact Interim Editor <strong>Brother Melissa Buchanan</strong> at <a href="/cdn-cgi/l/email-protection#5c313d2f371c373d2c2c3d2c2f3572332e3b"><span class="__cf_email__" data-cfemail="e48985978fa48f8594948594978dca8b9683">[email&#160;protected]</span></a>
   </div>
 
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function reportHeight() {
     var height = document.documentElement.scrollHeight;
-    window.parent.postMessage({ type: 'mask-card-height', height: height }, '*');
-  }
-  window.addEventListener('load', reportHeight);
-  window.addEventListener('resize', reportHeight);
-  document.addEventListener('DOMContentLoaded', function () {
-    setTimeout(reportHeight, 200);
-  });
-</script>
-
-</body>
-</html>
+    window.parent.postMessage({ type: 'mask-card-height', height: height }, '
