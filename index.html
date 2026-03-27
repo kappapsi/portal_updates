@@ -305,7 +305,21 @@
 
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   function reportHeight() {
-    var height = document.documentElement.scrollHeight;
-    window.parent.postMessage({ type: 'mask-card-height', height: height }, '
+    // getBoundingClientRect is more reliable than scrollHeight on mobile
+    var height = document.body.getBoundingClientRect().height;
+    window.parent.postMessage({ type: 'mask-card-height', height: height }, '*');
+  }
+
+  // Report on load
+  window.addEventListener('load', reportHeight);
+
+  // Report on resize (handles mobile grid reflow)
+  window.addEventListener('resize', reportHeight);
+
+  // Also report after a short delay to catch web font layout shifts
+  window.addEventListener('load', function() {
+    setTimeout(reportHeight, 300);
+  });
+</script>
