@@ -1,5 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The MASK Updates — Summer 2026</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  .mask-wrap { font-family: var(--font-sans); padding: 0.5rem 0; }
+  :root {
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --color-background-primary: #ffffff;
+    --color-background-secondary: #f5f5f4;
+    --color-background-info: #e6f1fb;
+    --color-background-success: #eaf3de;
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #555550;
+    --color-text-info: #185fa5;
+    --color-text-success: #3b6d11;
+    --color-border-tertiary: rgba(0,0,0,0.12);
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f0eeeb;
+    font-family: var(--font-sans);
+    padding: 2rem;
+    min-height: 100vh;
+  }
+
+  .mask-wrap { max-width: 720px; margin: 0 auto; }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
   .mask-header {
     background: #7A0000;
     border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
@@ -40,13 +80,14 @@
     text-decoration: none;
     cursor: pointer;
     transition: background 0.15s;
+    font-family: var(--font-sans);
   }
   .mask-submit-btn:hover { background: rgba(255,255,255,0.2); }
+
   .mask-body {
     background: var(--color-background-primary);
     border: 0.5px solid var(--color-border-tertiary);
     border-top: none;
-    border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
   }
   .mask-sections {
     display: grid;
@@ -59,6 +100,7 @@
   }
   .mask-section:nth-child(2n) { border-right: none; }
   .mask-section:nth-last-child(-n+2) { border-bottom: none; }
+
   .mask-section-icon {
     width: 36px;
     height: 36px;
@@ -69,10 +111,11 @@
     margin-bottom: 12px;
     font-size: 18px;
   }
-  .icon-red { background: #F5E6E6; color: #7A0000; }
-  .icon-blue { background: var(--color-background-info); color: var(--color-text-info); }
-  .icon-amber { background: #FFF3DC; color: #854F0B; }
+  .icon-red   { background: #f5e6e6; color: #7A0000; }
+  .icon-blue  { background: var(--color-background-info); color: var(--color-text-info); }
+  .icon-amber { background: #fff3dc; color: #854F0B; }
   .icon-green { background: var(--color-background-success); color: var(--color-text-success); }
+
   .mask-section-label {
     font-size: 11px;
     font-weight: 500;
@@ -122,9 +165,11 @@
     text-decoration: none;
   }
   .mask-list li a:hover { text-decoration: underline; }
+
   .mask-footer {
     background: var(--color-background-secondary);
-    border-top: 0.5px solid var(--color-border-tertiary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-top: none;
     border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
     padding: 1rem 1.6rem;
     display: flex;
@@ -136,14 +181,18 @@
   .mask-footer i { color: #7A0000; font-size: 16px; flex-shrink: 0; }
   .mask-footer a { color: #7A0000; font-weight: 500; text-decoration: none; }
   .mask-footer a:hover { text-decoration: underline; }
+  .mask-footer strong { color: var(--color-text-primary); }
+
   @media (max-width: 520px) {
+    body { padding: 1rem; }
     .mask-sections { grid-template-columns: 1fr; }
     .mask-section { border-right: none; }
     .mask-section:nth-last-child(-n+2) { border-bottom: 0.5px solid var(--color-border-tertiary); }
     .mask-section:last-child { border-bottom: none; }
   }
 </style>
-
+</head>
+<body>
 <div class="mask-wrap">
   <h2 class="sr-only">The MASK Updates — Summer 2026 submission guide for Kappa Psi</h2>
 
@@ -210,6 +259,8 @@
 
   <div class="mask-footer">
     <i class="ti ti-mail" aria-hidden="true"></i>
-    Questions? Contact Interim Editor <strong style="color:var(--color-text-primary); margin: 0 2px;">&nbsp;Brother Melissa Buchanan&nbsp;</strong> at <a href="mailto:MASK@kappapsi.org">MASK@kappapsi.org</a>
+    Questions? Contact Interim Editor <strong>&nbsp;Brother Melissa Buchanan&nbsp;</strong> at <a href="mailto:MASK@kappapsi.org">MASK@kappapsi.org</a>
   </div>
 </div>
+</body>
+</html>
