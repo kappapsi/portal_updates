@@ -4,12 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The MASK Updates — Summer 2026</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Tabler Icons embedded as inline SVG sprite (subset used) -->
 <style>
+  /* ── Google Fonts: Playfair Display + Inter (embedded via @import for local use) ── */
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@400;500&display=swap');
+
+  /*
+    NOTE FOR FULLY OFFLINE USE:
+    If internet access is unavailable, download the fonts from:
+      https://fonts.google.com/specimen/Playfair+Display
+      https://fonts.google.com/specimen/Inter
+    Place the .woff2 files next to this HTML file and replace the @import above
+    with local @font-face declarations pointing to those files.
+
+    For icons, this file uses inline SVG — no external dependency needed.
+  */
+
   :root {
-    --font-sans: 'Inter', sans-serif;
-    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
     --color-background-primary: #ffffff;
     --color-background-secondary: #f5f5f4;
     --color-background-info: #e6f1fb;
@@ -30,9 +44,12 @@
     font-family: var(--font-sans);
     padding: 2rem;
     min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .mask-wrap { max-width: 720px; margin: 0 auto; }
+  .mask-wrap { width: 1100px; max-width: 100%; }
 
   .sr-only {
     position: absolute; width: 1px; height: 1px;
@@ -40,50 +57,38 @@
     clip: rect(0,0,0,0); white-space: nowrap; border: 0;
   }
 
+  /* ── Header ── */
   .mask-header {
     background: #7A0000;
     border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
-    padding: 1.4rem 1.6rem 1.2rem;
+    padding: 1rem 1.4rem 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
   }
+  .mask-header-left { flex: 1; min-width: 0; }
   .mask-eyebrow {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 4px;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 2px;
   }
   .mask-title {
-    font-size: 22px;
-    font-weight: 500;
-    color: #fff;
-    margin-bottom: 6px;
+    font-size: 18px; font-weight: 500; color: #fff; margin-bottom: 3px;
     font-family: var(--font-serif);
   }
-  .mask-catchphrase {
-    font-size: 14px;
-    color: rgba(255,255,255,0.75);
-    margin-bottom: 12px;
-  }
+  .mask-catchphrase { font-size: 13px; color: rgba(255,255,255,0.75); }
   .mask-catchphrase em { color: #FFD0D0; font-style: normal; }
   .mask-submit-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(255,255,255,0.12);
-    border: 0.5px solid rgba(255,255,255,0.35);
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 7px 16px;
-    border-radius: var(--border-radius-md);
-    text-decoration: none;
-    cursor: pointer;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.12); border: 0.5px solid rgba(255,255,255,0.35);
+    color: #fff; font-size: 13px; font-weight: 500; padding: 6px 14px;
+    border-radius: var(--border-radius-md); text-decoration: none;
+    cursor: pointer; white-space: nowrap; font-family: var(--font-sans);
     transition: background 0.15s;
-    font-family: var(--font-sans);
   }
   .mask-submit-btn:hover { background: rgba(255,255,255,0.2); }
+  .mask-submit-btn svg { width: 15px; height: 15px; stroke: currentColor; }
 
+  /* ── Body grid ── */
   .mask-body {
     background: var(--color-background-primary);
     border: 0.5px solid var(--color-border-tertiary);
@@ -91,105 +96,59 @@
   }
   .mask-sections {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0,1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   .mask-section {
-    padding: 1.4rem 1.6rem;
+    padding: 1rem 1.1rem;
     border-right: 0.5px solid var(--color-border-tertiary);
-    border-bottom: 0.5px solid var(--color-border-tertiary);
   }
-  .mask-section:nth-child(2n) { border-right: none; }
-  .mask-section:nth-last-child(-n+2) { border-bottom: none; }
+  .mask-section:last-child { border-right: none; }
 
   .mask-section-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: var(--border-radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 12px;
-    font-size: 18px;
+    width: 30px; height: 30px; border-radius: var(--border-radius-md);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 8px;
   }
+  .mask-section-icon svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
   .icon-red   { background: #f5e6e6; color: #7A0000; }
   .icon-blue  { background: var(--color-background-info); color: var(--color-text-info); }
   .icon-amber { background: #fff3dc; color: #854F0B; }
   .icon-green { background: var(--color-background-success); color: var(--color-text-success); }
 
   .mask-section-label {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-text-secondary);
-    margin-bottom: 4px;
+    font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 3px;
   }
   .mask-section-heading {
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--color-text-primary);
-    margin-bottom: 12px;
+    font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 8px;
   }
-  .mask-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+  .mask-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
   .mask-list li {
-    font-size: 15px;
-    color: var(--color-text-secondary);
-    line-height: 1.5;
-    padding-left: 16px;
-    position: relative;
+    font-size: 13px; color: var(--color-text-secondary); line-height: 1.4;
+    padding-left: 12px; position: relative;
   }
   .mask-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 9px;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #7A0000;
+    content: ''; position: absolute; left: 0; top: 7px;
+    width: 4px; height: 4px; border-radius: 50%; background: #7A0000;
   }
-  .mask-list li strong {
-    color: var(--color-text-primary);
-    font-weight: 500;
-  }
-  .mask-list li a {
-    color: #7A0000;
-    font-weight: 500;
-    text-decoration: none;
-  }
+  .mask-list li strong { color: var(--color-text-primary); font-weight: 500; }
+  .mask-list li a { color: #7A0000; font-weight: 500; text-decoration: none; }
   .mask-list li a:hover { text-decoration: underline; }
 
+  /* ── Footer ── */
   .mask-footer {
     background: var(--color-background-secondary);
-    border: 0.5px solid var(--color-border-tertiary);
-    border-top: none;
+    border: 0.5px solid var(--color-border-tertiary); border-top: none;
     border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
-    padding: 1rem 1.6rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: var(--color-text-secondary);
+    padding: 0.7rem 1.4rem;
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--color-text-secondary);
   }
-  .mask-footer i { color: #7A0000; font-size: 16px; flex-shrink: 0; }
+  .mask-footer .footer-icon { color: #7A0000; flex-shrink: 0; }
+  .mask-footer .footer-icon svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; vertical-align: middle; }
   .mask-footer a { color: #7A0000; font-weight: 500; text-decoration: none; }
   .mask-footer a:hover { text-decoration: underline; }
   .mask-footer strong { color: var(--color-text-primary); }
-
-  @media (max-width: 520px) {
-    body { padding: 1rem; }
-    .mask-sections { grid-template-columns: 1fr; }
-    .mask-section { border-right: none; }
-    .mask-section:nth-last-child(-n+2) { border-bottom: 0.5px solid var(--color-border-tertiary); }
-    .mask-section:last-child { border-bottom: none; }
-  }
 </style>
 </head>
 <body>
@@ -197,11 +156,14 @@
   <h2 class="sr-only">The MASK Updates — Summer 2026 submission guide for Kappa Psi</h2>
 
   <div class="mask-header">
-    <div class="mask-eyebrow">Summer 2026 issue</div>
-    <div class="mask-title">The MASK — Call for Submissions</div>
-    <div class="mask-catchphrase">Catchphrase: <em>Recruit, Engage, Belong</em></div>
+    <div class="mask-header-left">
+      <div class="mask-eyebrow">Summer 2026 issue</div>
+      <div class="mask-title">The MASK — Call for Submissions</div>
+      <div class="mask-catchphrase">Catchphrase: <em>Recruit, Engage, Belong</em></div>
+    </div>
     <a class="mask-submit-btn" href="https://form.jotform.com/kappa_psi/MASK" target="_blank" rel="noopener">
-      <i class="ti ti-edit" aria-hidden="true"></i>
+      <!-- ti-edit inline SVG -->
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-1"/><path d="M20.385 6.585a2.1 2.1 0 0 0-2.97-2.97L9 12v3h3l8.385-8.415z"/></svg>
       Submit your article
     </a>
   </div>
@@ -209,8 +171,12 @@
   <div class="mask-body">
     <div class="mask-sections">
 
+      <!-- Chapter -->
       <div class="mask-section">
-        <div class="mask-section-icon icon-red" aria-hidden="true"><i class="ti ti-building-community"></i></div>
+        <div class="mask-section-icon icon-red" aria-hidden="true">
+          <!-- ti-building-community -->
+          <svg viewBox="0 0 24 24"><path d="M8 9l4-4 4 4"/><path d="M12 5v13"/><path d="M3 21h18"/><path d="M3 10l2-2"/><path d="M19 10l2-2"/><rect x="2" y="10" width="4" height="11"/><rect x="18" y="10" width="4" height="11"/></svg>
+        </div>
         <div class="mask-section-label">Chapter submission</div>
         <div class="mask-section-heading">Chapter &amp; Individual Activities</div>
         <ul class="mask-list">
@@ -218,18 +184,26 @@
         </ul>
       </div>
 
+      <!-- Province -->
       <div class="mask-section">
-        <div class="mask-section-icon icon-blue" aria-hidden="true"><i class="ti ti-map"></i></div>
+        <div class="mask-section-icon icon-blue" aria-hidden="true">
+          <!-- ti-map -->
+          <svg viewBox="0 0 24 24"><polygon points="3 7 9 4 15 7 21 4 21 17 15 20 9 17 3 20"/><line x1="9" y1="4" x2="9" y2="17"/><line x1="15" y1="7" x2="15" y2="20"/></svg>
+        </div>
         <div class="mask-section-label">Province submission</div>
         <div class="mask-section-heading">Province-Wide Activities</div>
         <ul class="mask-list">
           <li>Recap <strong>province meetings</strong> or province-wide activities from the academic year</li>
-          <li>Focus on the <strong>province as a whole</strong> — not the individual chapters that make it up</li>
+          <li>Focus on the <strong>province as a whole</strong> — not individual chapters</li>
         </ul>
       </div>
 
+      <!-- Photos -->
       <div class="mask-section">
-        <div class="mask-section-icon icon-amber" aria-hidden="true"><i class="ti ti-camera"></i></div>
+        <div class="mask-section-icon icon-amber" aria-hidden="true">
+          <!-- ti-camera -->
+          <svg viewBox="0 0 24 24"><path d="M5 7h1a2 2 0 0 0 2-2 1 1 0 0 1 1-1h6a1 1 0 0 1 1 1 2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2"/><circle cx="12" cy="13" r="3"/></svg>
+        </div>
         <div class="mask-section-label">Photos</div>
         <div class="mask-section-heading">Visual Storytelling</div>
         <ul class="mask-list">
@@ -241,15 +215,19 @@
         </ul>
       </div>
 
+      <!-- Spotlights -->
       <div class="mask-section">
-        <div class="mask-section-icon icon-green" aria-hidden="true"><i class="ti ti-sparkles"></i></div>
+        <div class="mask-section-icon icon-green" aria-hidden="true">
+          <!-- ti-sparkles -->
+          <svg viewBox="0 0 24 24"><path d="M16 18a2 2 0 0 1 2-2 2 2 0 0 1-2-2 2 2 0 0 1-2 2 2 2 0 0 1 2 2"/><path d="M6 12a2 2 0 0 1 2-2 2 2 0 0 1-2-2 2 2 0 0 1-2 2 2 2 0 0 1 2 2"/><path d="M12 4a2 2 0 0 1 2-2 2 2 0 0 1-2-2 2 2 0 0 1-2 2 2 2 0 0 1 2 2"/></svg>
+        </div>
         <div class="mask-section-label">Additional prompts</div>
         <div class="mask-section-heading">Spotlights &amp; Ideas</div>
         <ul class="mask-list">
-          <li>Submit requests or ideas for topic/individual highlights to <a href="mailto:mask@kappapsi.org">mask@kappapsi.org</a></li>
+          <li>Submit requests or ideas to <a href="mailto:mask@kappapsi.org">mask@kappapsi.org</a></li>
           <li>Examples: <strong>pharmacy practice focus</strong></li>
           <li>Collegiate or graduate <strong>individual accomplishments</strong></li>
-          <li>Inquiries on notable Kappa Psi people for <strong>"Where Are They Now"</strong></li>
+          <li>Inquiries for <strong>"Where Are They Now"</strong></li>
           <li><strong>Graduate news</strong></li>
         </ul>
       </div>
@@ -258,7 +236,10 @@
   </div>
 
   <div class="mask-footer">
-    <i class="ti ti-mail" aria-hidden="true"></i>
+    <span class="footer-icon" aria-hidden="true">
+      <!-- ti-mail -->
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+    </span>
     Questions? Contact Interim Editor <strong>&nbsp;Brother Melissa Buchanan&nbsp;</strong> at <a href="mailto:MASK@kappapsi.org">MASK@kappapsi.org</a>
   </div>
 </div>
