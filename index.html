@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THE MASK Updates — Summer 2026</title>
+<title>THE MASK Updates — Fall 2026</title>
 
 <!-- Tabler Icons embedded as inline SVG sprite (subset used) -->
 <style>
@@ -76,6 +76,7 @@
     font-family: var(--font-serif);
   }
   .mask-catchphrase { font-size: 13px; color: rgba(255,255,255,0.75); }
+  .mask-catchphrase strong { color: #fff; font-weight: 500; }
   .mask-catchphrase em { color: #FFD0D0; font-style: normal; }
   .mask-submit-btn {
     display: inline-flex; align-items: center; gap: 6px;
@@ -96,10 +97,11 @@
   }
   .mask-sections {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    /* Adjusted from 4 columns to 3 to accommodate the longer text points */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .mask-section {
-    padding: 1rem 1.1rem;
+    padding: 1.2rem 1.4rem;
     border-right: 0.5px solid var(--color-border-tertiary);
   }
   .mask-section:last-child { border-right: none; }
@@ -113,18 +115,17 @@
   .icon-red   { background: #f5e6e6; color: #7A0000; }
   .icon-blue  { background: var(--color-background-info); color: var(--color-text-info); }
   .icon-amber { background: #fff3dc; color: #854F0B; }
-  .icon-green { background: var(--color-background-success); color: var(--color-text-success); }
 
   .mask-section-label {
     font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
     text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 3px;
   }
   .mask-section-heading {
-    font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 8px;
+    font-size: 15px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 10px;
   }
-  .mask-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+  .mask-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
   .mask-list li {
-    font-size: 13px; color: var(--color-text-secondary); line-height: 1.4;
+    font-size: 13px; color: var(--color-text-secondary); line-height: 1.45;
     padding-left: 12px; position: relative;
   }
   .mask-list li::before {
@@ -134,6 +135,7 @@
   .mask-list li strong { color: var(--color-text-primary); font-weight: 500; }
   .mask-list li a { color: #7A0000; font-weight: 500; text-decoration: none; }
   .mask-list li a:hover { text-decoration: underline; }
+  .note-text { color: #7A0000 !important; font-weight: 500; }
 
   /* ── Footer ── */
   .mask-footer {
@@ -153,13 +155,13 @@
 </head>
 <body>
 <div class="mask-wrap">
-  <h2 class="sr-only">THE MASK Updates — Summer 2026 submission guide for Kappa Psi</h2>
+  <h2 class="sr-only">THE MASK Updates — Fall 2026 submission guide for Kappa Psi</h2>
 
   <div class="mask-header">
     <div class="mask-header-left">
-      <div class="mask-eyebrow">Summer 2026 issue</div>
+      <div class="mask-eyebrow">Fall 2026 issue</div>
       <div class="mask-title">THE MASK — Call for Submissions</div>
-      <!--<div class="mask-catchphrase">Catchphrase: <em>Recruit, Engage, Belong</em></div>-->
+      <div class="mask-catchphrase">Fall Theme: <strong>Powered by Purpose</strong> &mdash; <em>Be intentional. Be strategic. Know your goals. Have a vision.</em></div>
     </div>
     <a class="mask-submit-btn" href="https://form.jotform.com/kappa_psi/MASK" target="_blank" rel="noopener">
       <!-- ti-edit inline SVG -->
@@ -171,30 +173,37 @@
   <div class="mask-body">
     <div class="mask-sections">
 
-      <!-- Chapter -->
+      <!-- GCC Stories -->
       <div class="mask-section">
         <div class="mask-section-icon icon-red" aria-hidden="true">
           <!-- ti-building-community -->
           <svg viewBox="0 0 24 24"><path d="M8 9l4-4 4 4"/><path d="M12 5v13"/><path d="M3 21h18"/><path d="M3 10l2-2"/><path d="M19 10l2-2"/><rect x="2" y="10" width="4" height="11"/><rect x="18" y="10" width="4" height="11"/></svg>
         </div>
-        <div class="mask-section-label">Chapter submission</div>
-        <div class="mask-section-heading">Chapter &amp; Individual Activities</div>
+        <div class="mask-section-label">GCC Stories</div>
+        <div class="mask-section-heading">Grand Council Convention</div>
         <ul class="mask-list">
-          <li>Report chapter or <strong>individual activities</strong> not previously reported</li>
+          <li>What did you gain <strong>personally or professionally</strong> from attending?</li>
+          <li>What experiences made GCC <strong>meaningful and memorable</strong>?</li>
+          <li>What interactions made you excited for <strong>future GCCs</strong>?</li>
+          <li>What sessions or conversations impacted how you approach the <strong>year ahead</strong>?</li>
+          <li>What will you <strong>do differently</strong> because of what you learned?</li>
         </ul>
       </div>
 
-      <!-- Province -->
+      <!-- Intentional Planning -->
       <div class="mask-section">
         <div class="mask-section-icon icon-blue" aria-hidden="true">
           <!-- ti-map -->
           <svg viewBox="0 0 24 24"><polygon points="3 7 9 4 15 7 21 4 21 17 15 20 9 17 3 20"/><line x1="9" y1="4" x2="9" y2="17"/><line x1="15" y1="7" x2="15" y2="20"/></svg>
         </div>
-        <div class="mask-section-label">Province submission</div>
-        <div class="mask-section-heading">Province-Wide Activities</div>
+        <div class="mask-section-label">General Stories</div>
+        <div class="mask-section-heading">Intentional Planning</div>
         <ul class="mask-list">
-          <li>Recap <strong>province meetings</strong> or province-wide activities from the academic year</li>
-          <li>Focus on the <strong>province as a whole</strong> — not individual chapters</li>
+          <li>Share successes that required <strong>preparation, strategy, and purpose</strong></li>
+          <li><strong>Officer retreats</strong> or annual planning</li>
+          <li>Large <strong>events or initiatives</strong></li>
+          <li><strong>Personal or professional goals</strong> (e.g., residency, internship)</li>
+          <li>Building stronger <strong>alumni relationships</strong></li>
         </ul>
       </div>
 
@@ -210,25 +219,8 @@
           <li>Photos that <strong>tell a story without words</strong></li>
           <li>Prefer <strong>action shots</strong> over group poses</li>
           <li>Include photos of <strong>each event</strong> if possible</li>
-          <li>High-res, <strong>vertical, unfiltered</strong></li>
-          <li>Identify all <strong>individuals</strong> pictured</li>
-        </ul>
-      </div>
-
-      <!-- Spotlights -->
-      <div class="mask-section">
-        <div class="mask-section-icon icon-green" aria-hidden="true">
-          <!-- ti-sparkles -->
-          <svg viewBox="0 0 24 24"><path d="M16 18a2 2 0 0 1 2-2 2 2 0 0 1-2-2 2 2 0 0 1-2 2 2 2 0 0 1 2 2"/><path d="M6 12a2 2 0 0 1 2-2 2 2 0 0 1-2-2 2 2 0 0 1-2 2 2 2 0 0 1 2 2"/><path d="M12 4a2 2 0 0 1 2-2 2 2 0 0 1-2-2 2 2 0 0 1-2 2 2 2 0 0 1 2 2"/></svg>
-        </div>
-        <div class="mask-section-label">Additional prompts</div>
-        <div class="mask-section-heading">Spotlights &amp; Ideas</div>
-        <ul class="mask-list">
-          <li>Submit requests or ideas to <a href="mailto:mask@kappapsi.org">mask@kappapsi.org</a></li>
-          <li>Examples: <strong>pharmacy practice focus</strong></li>
-          <li>Collegiate or graduate <strong>individual accomplishments</strong></li>
-          <li>Inquiries for <strong>"Where Are They Now"</strong></li>
-          <li><strong>Graduate news</strong></li>
+          <li>High-res, <strong>vertical, unfiltered</strong> and identify all individuals pictured</li>
+          <li class="note-text"><strong>Note:</strong> Do not embed in Word/PDF documents. Please send the original photo file.</li>
         </ul>
       </div>
 
