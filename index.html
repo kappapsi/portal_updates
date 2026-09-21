@@ -97,7 +97,6 @@
   }
   .mask-sections {
     display: grid;
-    /* Adjusted from 4 columns to 3 to accommodate the longer text points */
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .mask-section {
@@ -235,5 +234,36 @@
     Questions? Contact Interim Editor <strong>&nbsp;Brother Melissa Buchanan&nbsp;</strong> at <a href="mailto:MASK@kappapsi.org">MASK@kappapsi.org</a>
   </div>
 </div>
+
+<script>
+  function sendHeightToParent() {
+    // Calculate the total height of the content
+    const height = Math.max(
+      document.body.scrollHeight, 
+      document.body.offsetHeight, 
+      document.documentElement.clientHeight, 
+      document.documentElement.scrollHeight, 
+      document.documentElement.offsetHeight
+    );
+    
+    // Send the height to the parent window
+    window.parent.postMessage({ type: 'mask-card-height', height: height }, '*');
+  }
+
+  // 1. Send height when the page initially loads
+  window.addEventListener('load', sendHeightToParent);
+
+  // 2. Send height whenever the window is resized
+  window.addEventListener('resize', sendHeightToParent);
+
+  // 3. Send height if internal DOM elements shift or change size
+  if ('ResizeObserver' in window) {
+    const resizeObserver = new ResizeObserver(() => {
+      sendHeightToParent();
+    });
+    // Observe the body for any size changes
+    resizeObserver.observe(document.body);
+  }
+</script>
 </body>
 </html>
