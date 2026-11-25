@@ -149,7 +149,7 @@
     border: 0.5px solid var(--color-border-tertiary); border-top: none;
     border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
     padding: 0.7rem 1.4rem;
-    display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px;
+    display: flex; align-items: center; gap: 8px;
     font-size: 13px; color: var(--color-text-secondary);
   }
   .mask-footer .footer-icon { color: var(--color-brand); flex-shrink: 0; display: inline-flex; }
@@ -157,9 +157,106 @@
   .mask-footer a { color: var(--color-brand); font-weight: 500; text-decoration: none; }
   .mask-footer a:hover { text-decoration: underline; }
   .mask-footer strong { color: var(--color-text-primary); }
+
+  /* ── Event card: Grand Regent Address ── */
+  .event-card {
+    inline-size: 1100px; max-inline-size: 100%;
+    margin-inline: auto; margin-block-end: 1.25rem;
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-inline-start: 4px solid var(--color-brand);
+    border-radius: var(--border-radius-lg);
+    padding: 1.2rem 1.4rem;
+    display: flex; flex-wrap: wrap; align-items: center;
+    gap: 1rem 1.75rem;
+  }
+  .event-main { flex: 1 1 420px; min-inline-size: 0; }
+  .event-eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--color-brand); margin-block-end: 4px;
+  }
+  .event-eyebrow svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .event-title {
+    font-family: var(--font-serif); font-size: 20px; font-weight: 500;
+    color: var(--color-text-primary); margin-block-end: 2px;
+  }
+  .event-subtitle { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-block-end: 8px; }
+  .event-desc { font-size: 13px; line-height: 1.5; color: var(--color-text-secondary); max-inline-size: 70ch; }
+  .event-desc strong { color: var(--color-text-primary); font-weight: 500; }
+
+  .event-side {
+    flex: 0 1 260px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .event-meta { display: flex; flex-direction: column; gap: 6px; }
+  .event-meta-row {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 13px; color: var(--color-text-primary); line-height: 1.4;
+  }
+  .event-meta-row svg { flex-shrink: 0; width: 15px; height: 15px; margin-block-start: 1px; stroke: var(--color-brand); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .event-local { display: block; font-size: 12px; color: var(--color-text-secondary); }
+  .event-local:empty { display: none; }
+  .event-join-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    background: var(--color-brand); color: #fff;
+    font-size: 13px; font-weight: 500; padding: 8px 14px;
+    border-radius: var(--border-radius-md); text-decoration: none;
+    font-family: var(--font-sans); transition: background 0.15s;
+  }
+  .event-join-btn:hover { background: #5c0000; }
+  .event-join-btn:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; }
+  .event-join-btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .event-join-note { font-size: 11px; color: var(--color-text-secondary); text-align: center; }
 </style>
 </head>
 <body>
+<!-- ── Grand Regent Address ── -->
+<section class="event-card" aria-labelledby="event-title">
+  <div class="event-main">
+    <div class="event-eyebrow">
+      <!-- ti-speakerphone -->
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a3 3 0 0 1 0 6"/><path d="M10 8v11a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-5"/><path d="M12 8h0l4.524-3.77A.9.9 0 0 1 18 4.922v12.156a.9.9 0 0 1-1.476.692L12 14H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h8"/></svg>
+      Grand Regent Address
+    </div>
+    <h2 class="event-title" id="event-title">Strategic Plan and Fraternity Priorities</h2>
+    <p class="event-subtitle">with Grand Regent Joe Nardolillo</p>
+    <p class="event-desc">
+      Join Grand Regent Joe Nardolillo for a Fraternity address to learn more about the
+      <strong>2027 Strategic Plan</strong>, <strong>Province Revitalization</strong> and
+      <strong>Governance Modernization</strong> work being completed, along with next steps and timelines.
+    </p>
+  </div>
+
+  <div class="event-side">
+    <div class="event-meta">
+      <div class="event-meta-row">
+        <!-- ti-calendar -->
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 11h16"/></svg>
+        <span><time datetime="2026-12-02T20:00-05:00">Wednesday, December 2, 2026</time></span>
+      </div>
+      <div class="event-meta-row">
+        <!-- ti-clock -->
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <span>
+          8:00 PM Eastern Time (US &amp; Canada)
+          <span class="event-local" id="event-local"></span>
+        </span>
+      </div>
+      <div class="event-meta-row">
+        <!-- ti-video -->
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 10l4.553-2.276A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.447.894L15 14v-4z"/><rect x="3" y="6" width="12" height="12" rx="2"/></svg>
+        <span>Zoom &mdash; join from PC, Mac, iPad, or Android</span>
+      </div>
+    </div>
+    <a class="event-join-btn" href="https://us06web.zoom.us/j/81399865022" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 10l4.553-2.276A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.447.894L15 14v-4z"/><rect x="3" y="6" width="12" height="12" rx="2"/></svg>
+      Join Zoom Meeting
+    </a>
+    <div class="event-join-note">Meeting ID: 813 9986 5022</div>
+  </div>
+</section>
+
 <div class="mask-wrap">
   <h2 class="sr-only">THE MASK Updates — Winter 2027 submission guide for Kappa Psi</h2>
 
@@ -247,11 +344,27 @@
       <!-- ti-mail -->
       <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
     </span>
-    <span>Questions? Contact Editor of The MASK<strong>Brother Melissa Buchanan</strong> at <a href="mailto:MASK@kappapsi.org">MASK@kappapsi.org</a></span>
+    <span>Questions? Contact Editor of The MASK <strong>Brother Melissa Buchanan</strong> at <a href="mailto:MASK@kappapsi.org">MASK@kappapsi.org</a></span>
   </div>
 </div>
 
 <script>
+  // Show the Grand Regent Address start time in the viewer's own time zone,
+  // but only when it differs from Eastern Time.
+  (function showLocalEventTime() {
+    const el = document.getElementById('event-local');
+    if (!el || !window.Intl) return;
+    const start = new Date('2026-12-02T20:00:00-05:00');
+    const viewerTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const fmt = (tz) => new Intl.DateTimeFormat(undefined, {
+      timeZone: tz, weekday: 'short', month: 'short', day: 'numeric',
+      hour: 'numeric', minute: '2-digit', timeZoneName: 'short'
+    }).format(start);
+    if (fmt(viewerTz) !== fmt('America/New_York')) {
+      el.textContent = fmt(viewerTz) + ' your time';
+    }
+  })();
+
   function sendHeightToParent() {
     // Measure the body itself (content + padding). documentElement.scrollHeight
     // is never smaller than the iframe's current height, so it can't shrink.
